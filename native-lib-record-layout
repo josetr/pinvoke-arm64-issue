@@ -1,0 +1,82 @@
+
+*** Dumping AST Record Layout
+         0 | struct Pod16
+         0 |   unsigned int a
+         8 |   intptr_t b
+           | [sizeof=16, dsize=16, align=8,
+           |  nvsize=16, nvalign=8]
+
+*** Dumping IRgen Record Layout
+Record: [0;1;32mCXXRecordDecl[0m[0;33m 0x13e818970[0m <[0;33mnative-lib.cpp:3:1[0m, [0;33mline:7:1[0m> [0;33mline:3:8[0m referenced struct[0;1;36m Pod16[0m definition
+[0;34m|-[0m[0;1;32mDefinitionData[0m pass_in_registers aggregate standard_layout trivially_copyable pod trivial literal
+[0;34m| |-[0m[0;1;32mDefaultConstructor[0m exists trivial
+[0;34m| |-[0m[0;1;32mCopyConstructor[0m simple trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveConstructor[0m exists simple trivial needs_implicit
+[0;34m| |-[0m[0;1;32mCopyAssignment[0m simple trivial has_const_param needs_implicit implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveAssignment[0m exists simple trivial needs_implicit
+[0;34m| `-[0m[0;1;32mDestructor[0m simple irrelevant trivial needs_implicit
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x13e818a88[0m <[0;33mcol:1[0m, [0;33mcol:8[0m> [0;33mcol:8[0m implicit struct[0;1;36m Pod16[0m
+[0;34m|-[0m[0;1;32mFieldDecl[0m[0;33m 0x13e818b30[0m <[0;33mline:5:3[0m, [0;33mcol:12[0m> [0;33mcol:12[0m referenced[0;1;36m a[0m [0;32m'unsigned int'[0m
+[0;34m|-[0m[0;1;32mFieldDecl[0m[0;33m 0x13e818bf0[0m <[0;33mline:6:3[0m, [0;33mcol:12[0m> [0;33mcol:12[0m referenced[0;1;36m b[0m [0;32m'intptr_t':'long'[0m
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x13e8192e8[0m <[0;33mline:3:8[0m> [0;33mcol:8[0m implicit used[0;1;36m Pod16[0m [0;32m'void () throw()'[0m inline default trivial
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x13e8195c8[0m <[0;33mcol:8[0m>
+[0;34m`-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x13e8193f8[0m <[0;33mcol:8[0m> [0;33mcol:8[0m implicit used[0;1;36m Pod16[0m [0;32m'void (const Pod16 &) throw()'[0m inline default trivial
+[0;34m  |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x13e819518[0m <[0;33mcol:8[0m> [0;33mcol:8[0m used [0;32m'const Pod16 &'[0m
+[0;34m  |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x13e818b30[0m[0;1;36m 'a'[0m [0;32m'unsigned int'[0m
+[0;34m  | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x13f1de580[0m <[0;33mcol:8[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m  |   `-[0m[0;1;35mMemberExpr[0m[0;33m 0x13f1de550[0m <[0;33mcol:8[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .a[0;33m 0x13e818b30[0m
+[0;34m  |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x13f1de530[0m <[0;33mcol:8[0m> [0;32m'const Pod16'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x13e819518[0m[0;1;36m ''[0m [0;32m'const Pod16 &'[0m
+[0;34m  |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x13e818bf0[0m[0;1;36m 'b'[0m [0;32m'intptr_t':'long'[0m
+[0;34m  | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x13f1de608[0m <[0;33mcol:8[0m> [0;32m'intptr_t':'long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m  |   `-[0m[0;1;35mMemberExpr[0m[0;33m 0x13f1de5d8[0m <[0;33mcol:8[0m> [0;32m'const intptr_t':'const long'[0m[0;36m lvalue[0m[0;36m[0m .b[0;33m 0x13e818bf0[0m
+[0;34m  |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x13f1de5b8[0m <[0;33mcol:8[0m> [0;32m'const Pod16'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x13e819518[0m[0;1;36m ''[0m [0;32m'const Pod16 &'[0m
+[0;34m  `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x13f1de650[0m <[0;33mcol:8[0m>
+
+Layout: <CGRecordLayout
+  LLVMType:%struct.Pod16 = type { i32, i64 }
+  NonVirtualBaseLLVMType:%struct.Pod16 = type { i32, i64 }
+  IsZeroInitializable:1
+  BitFields:[
+]>
+
+*** Dumping AST Record Layout
+         0 | struct NonPod16
+         0 |   unsigned int a
+         8 |   intptr_t b
+           | [sizeof=16, dsize=16, align=8,
+           |  nvsize=16, nvalign=8]
+
+*** Dumping IRgen Record Layout
+Record: [0;1;32mCXXRecordDecl[0m[0;33m 0x13e818c58[0m <[0;33mnative-lib.cpp:9:1[0m, [0;33mline:14:1[0m> [0;33mline:9:8[0m referenced struct[0;1;36m NonPod16[0m definition
+[0;34m|-[0m[0;1;32mDefinitionData[0m aggregate standard_layout
+[0;34m| |-[0m[0;1;32mDefaultConstructor[0m exists trivial
+[0;34m| |-[0m[0;1;32mCopyConstructor[0m simple trivial has_const_param implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveConstructor[0m
+[0;34m| |-[0m[0;1;32mCopyAssignment[0m simple trivial has_const_param needs_implicit implicit_has_const_param
+[0;34m| |-[0m[0;1;32mMoveAssignment[0m
+[0;34m| `-[0m[0;1;32mDestructor[0m non_trivial user_declared
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x13e818d78[0m <[0;33mcol:1[0m, [0;33mcol:8[0m> [0;33mcol:8[0m implicit referenced struct[0;1;36m NonPod16[0m
+[0;34m|-[0m[0;1;32mFieldDecl[0m[0;33m 0x13e818e20[0m <[0;33mline:11:3[0m, [0;33mcol:12[0m> [0;33mcol:12[0m referenced[0;1;36m a[0m [0;32m'unsigned int'[0m
+[0;34m|-[0m[0;1;32mFieldDecl[0m[0;33m 0x13e818e80[0m <[0;33mline:12:3[0m, [0;33mcol:12[0m> [0;33mcol:12[0m referenced[0;1;36m b[0m [0;32m'intptr_t':'long'[0m
+[0;34m|-[0m[0;1;32mCXXDestructorDecl[0m[0;33m 0x13e818f78[0m <[0;33mline:13:3[0m, [0;33mcol:16[0m> [0;33mcol:3[0m used[0;1;36m ~NonPod16[0m [0;32m'void ()'[0m implicit-inline
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x13e819060[0m <[0;33mcol:15[0m, [0;33mcol:16[0m>
+[0;34m|-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x13f1de918[0m <[0;33mline:9:8[0m> [0;33mcol:8[0m implicit used[0;1;36m NonPod16[0m [0;32m'void () throw()'[0m inline default trivial
+[0;34m| `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x13f1debc8[0m <[0;33mcol:8[0m>
+[0;34m`-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x13f1dea28[0m <[0;33mcol:8[0m> [0;33mcol:8[0m implicit used[0;1;36m NonPod16[0m [0;32m'void (const NonPod16 &) throw()'[0m inline default trivial
+[0;34m  |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x13f1deb48[0m <[0;33mcol:8[0m> [0;33mcol:8[0m used [0;32m'const NonPod16 &'[0m
+[0;34m  |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x13e818e20[0m[0;1;36m 'a'[0m [0;32m'unsigned int'[0m
+[0;34m  | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x13f1def30[0m <[0;33mcol:8[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m  |   `-[0m[0;1;35mMemberExpr[0m[0;33m 0x13f1def00[0m <[0;33mcol:8[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .a[0;33m 0x13e818e20[0m
+[0;34m  |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x13f1deee0[0m <[0;33mcol:8[0m> [0;32m'const NonPod16'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x13f1deb48[0m[0;1;36m ''[0m [0;32m'const NonPod16 &'[0m
+[0;34m  |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x13e818e80[0m[0;1;36m 'b'[0m [0;32m'intptr_t':'long'[0m
+[0;34m  | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x13f1defb8[0m <[0;33mcol:8[0m> [0;32m'intptr_t':'long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m  |   `-[0m[0;1;35mMemberExpr[0m[0;33m 0x13f1def88[0m <[0;33mcol:8[0m> [0;32m'const intptr_t':'const long'[0m[0;36m lvalue[0m[0;36m[0m .b[0;33m 0x13e818e80[0m
+[0;34m  |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x13f1def68[0m <[0;33mcol:8[0m> [0;32m'const NonPod16'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x13f1deb48[0m[0;1;36m ''[0m [0;32m'const NonPod16 &'[0m
+[0;34m  `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x13f1df000[0m <[0;33mcol:8[0m>
+
+Layout: <CGRecordLayout
+  LLVMType:%struct.NonPod16 = type { i32, i64 }
+  NonVirtualBaseLLVMType:%struct.NonPod16 = type { i32, i64 }
+  IsZeroInitializable:1
+  BitFields:[
+]>
